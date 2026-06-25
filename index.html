@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中耀博研 · 天津中耀博研生物医药有限公司</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:      #1a1814;
+    --ink-soft: #4a4540;
+    --ink-mute: #8a8278;
+    --paper:    #f7f4ef;
+    --paper-2:  #eeeae2;
+    --gold:     #b89a5a;
+    --gold-lt:  #d4b87a;
+    --moss:     #4a5c3a;
+    --moss-lt:  #6a7f55;
+    --divider:  rgba(26,24,20,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+  }
+  .nav-logo {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--paper);
+    background: var(--ink);
+    border: none;
+    padding: 9px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+  .hero-left {
+    padding: 80px 60px 80px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--divider);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .hero-title strong {
+    font-weight: 600;
+    display: block;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--ink-mute);
+    letter-spacing: 0.12em;
+    margin-bottom: 48px;
+  }
+  .hero-tagline {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    max-width: 400px;
+    margin-bottom: 52px;
+    padding-left: 20px;
+    border-left: 2px solid var(--gold);
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--moss); }
+  .btn-ghost {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-right {
+    padding: 80px 48px 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--divider);
+    border: 1px solid var(--divider);
+    margin-bottom: 48px;
+  }
+  .stat-cell {
+    background: var(--paper);
+    padding: 36px 32px;
+    position: relative;
+  }
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-number .counter { display: inline-block; }
+  .stat-number sup {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gold);
+    vertical-align: super;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+  }
+  .stat-sub {
+    font-size: 11px;
+    color: var(--gold);
+    margin-top: 4px;
+    letter-spacing: 0.06em;
+  }
+  .hero-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--divider);
+  }
+  .pillar:last-child { border-bottom: none; }
+  .pillar-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  .pillar-text h4 {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    letter-spacing: 0.04em;
+  }
+  .pillar-text p {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 100px 48px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 300;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--divider);
+    margin-left: 8px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ink); color: var(--paper); }
+  #about .section-title { color: var(--paper); }
+  #about .section-eyebrow { color: var(--gold-lt); }
+  #about .section-rule { background: rgba(247,244,239,0.15); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-body {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 2;
+    color: rgba(247,244,239,0.85);
+    margin-bottom: 40px;
+  }
+  .about-body strong { color: var(--gold-lt); font-weight: 400; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border: 1px solid rgba(247,244,239,0.2);
+    color: rgba(247,244,239,0.6);
+  }
+  .about-right { display: flex; flex-direction: column; gap: 32px; }
+  .about-fact {
+    padding: 28px 32px;
+    border: 1px solid rgba(247,244,239,0.1);
+    background: rgba(247,244,239,0.04);
+  }
+  .about-fact h4 {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--gold-lt);
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .about-fact p {
+    font-size: 14px;
+    color: rgba(247,244,239,0.7);
+    line-height: 1.7;
+  }
+
+  /* ── INGREDIENTS ── */
+  #ingredients { background: var(--paper-2); }
+  .category-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .tab-btn {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    padding: 12px 28px;
+    border: none;
+    background: transparent;
+    color: var(--ink-mute);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--gold);
+    font-weight: 500;
+  }
+  .tab-btn:hover { color: var(--ink); }
+  .ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--divider);
+  }
+  .ingredient-card {
+    background: var(--paper);
+    padding: 28px 24px;
+    transition: background 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+  .ingredient-card:hover { background: #fff; }
+  .ing-category {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .ing-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .ing-effects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .effect-tag {
+    font-size: 10px;
+    padding: 3px 10px;
+    background: var(--paper-2);
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+  .ing-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border: 1px solid var(--gold-lt);
+    padding: 2px 8px;
+    opacity: 0.8;
+  }
+  .ing-footer {
+    font-size: 11px;
+    color: var(--ink-mute);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ing-footer::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 1px;
+    background: var(--divider);
+  }
+
+  /* ── PATENTS ── */
+  #patents { }
+  .patents-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .patents-intro h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .patents-intro p {
+    font-size: 14px;
+    color: var(--ink-mute);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .patent-stat {
+    display: flex;
+    gap: 32px;
+    padding: 28px 0;
+    border-top: 1px solid var(--divider);
+  }
+  .patent-stat-item { text-align: center; }
+  .patent-stat-n {
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .patent-stat-n span { font-size: 18px; color: var(--gold); }
+  .patent-stat-l {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+  }
+  .patent-list { display: flex; flex-direction: column; gap: 0; }
+  .patent-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px;
+    gap: 24px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--divider);
+  }
+  .patent-type {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--paper);
+    background: var(--moss);
+    padding: 4px 10px;
+    text-align: center;
+    align-self: start;
+    margin-top: 2px;
+  }
+  .patent-type.utility { background: var(--ink-soft); }
+  .patent-name {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .patent-tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    align-self: start;
+    padding-top: 3px;
+    text-align: right;
+  }
+
+  /* ── EFFICACY ── */
+  #efficacy { background: var(--paper-2); }
+  .efficacy-intro {
+    max-width: 560px;
+    margin-bottom: 64px;
+  }
+  .efficacy-intro p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .efficacy-categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--divider);
+    margin-bottom: 64px;
+  }
+  .efficacy-cat {
+    background: var(--paper);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .efficacy-cat-icon { font-size: 28px; margin-bottom: 12px; }
+  .efficacy-cat-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .efficacy-cat-count {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .efficacy-cat-label {
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.06em;
+  }
+  .efficacy-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .efficacy-card {
+    padding: 32px;
+    background: var(--paper);
+    border-left: 3px solid var(--gold);
+  }
+  .efficacy-card h4 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .efficacy-card .data-point {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--moss);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .efficacy-card p {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.6;
+  }
+  .efficacy-card .source {
+    font-size: 11px;
+    color: var(--gold);
+    margin-top: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── BLOG ── */
+  #blog { }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--divider);
+  }
+  .blog-card {
+    background: var(--paper);
+    padding: 36px 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    display: block;
+  }
+  .blog-card:hover { background: #fff; }
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .blog-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .blog-date {
+    font-size: 11px;
+    color: var(--ink-mute);
+  }
+  .blog-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .blog-excerpt {
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .blog-arrow {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: var(--paper); }
+  #contact .section-title { color: var(--paper); }
+  #contact .section-eyebrow { color: var(--gold-lt); }
+  #contact .section-rule { background: rgba(247,244,239,0.15); }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-left h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--paper);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(247,244,239,0.1);
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold-lt);
+    text-transform: uppercase;
+    width: 60px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .contact-row-value {
+    font-size: 14px;
+    color: rgba(247,244,239,0.75);
+    line-height: 1.6;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(247,244,239,0.5);
+    text-transform: uppercase;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(247,244,239,0.06);
+    border: 1px solid rgba(247,244,239,0.15);
+    color: var(--paper);
+    padding: 12px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group select option { background: var(--ink); }
+  .form-submit {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: var(--gold);
+    border: none;
+    padding: 16px 36px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s;
+    text-transform: uppercase;
+  }
+  .form-submit:hover { background: var(--gold-lt); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    color: rgba(247,244,239,0.4);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  footer a { color: rgba(247,244,239,0.4); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 24px 40px; border-right: none; border-bottom: 1px solid var(--divider); }
+    .hero-right { padding: 40px 24px 60px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 64px 24px; }
+    .about-grid, .patents-layout, .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+    .efficacy-categories { grid-template-columns: repeat(3, 1fr); }
+    .efficacy-highlight, .blog-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  /* ── TAB PANEL ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SAMPLE MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,24,20,0.7);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--paper);
+    padding: 48px;
+    max-width: 480px;
+    width: 90%;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--ink-mute);
+    background: none;
+    border: none;
+    line-height: 1;
+  }
+  .modal-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .modal-sub { font-size: 13px; color: var(--ink-mute); margin-bottom: 28px; }
+  .modal-form { display: flex; flex-direction: column; gap: 14px; }
+  .modal-form input, .modal-form select, .modal-form textarea {
+    border: 1px solid var(--divider);
+    background: var(--paper);
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--ink);
+    outline: none;
+    resize: vertical;
+  }
+  .modal-form input:focus, .modal-form select:focus { border-color: var(--gold); }
+  .modal-submit {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 14px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .modal-submit:hover { background: var(--gold); }
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 24px 0;
+  }
+  .success-msg .check { font-size: 40px; margin-bottom: 16px; }
+  .success-msg h3 { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 300; margin-bottom: 8px; }
+  .success-msg p { font-size: 13px; color: var(--ink-mute); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">中<span>耀</span>博研</a>
+  <ul class="nav-links">
+    <li><a href="#about">关于我们</a></li>
+    <li><a href="#ingredients">原料中心</a></li>
+    <li><a href="#patents">专利体系</a></li>
+    <li><a href="#efficacy">功效数据</a></li>
+    <li><a href="#blog">研究洞察</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+  <a href="#" class="nav-cta" onclick="openModal(); return false;">申请样品</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">天津中耀博研生物医药有限公司</p>
+    <h1 class="hero-title">
+      从自然中溯源
+      <strong>用科学来转化</strong>
+    </h1>
+    <p class="hero-subtitle">ZHONGYAO BOYAN · BIOACTIVE INGREDIENTS</p>
+    <p class="hero-tagline">
+      东方发酵智慧与现代生物技术的深度融合——
+      为品牌方提供有专利保护、有功效数据、有故事可讲的生物活性原料。
+    </p>
+    <div class="hero-actions">
+      <a href="#ingredients" class="btn-primary">探索原料中心</a>
+      <a href="#contact" class="btn-ghost">联系我们 →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-number"><span class="counter" data-target="55">0</span><sup>+</sup></div>
+        <div class="stat-label">原料品类</div>
+        <div class="stat-sub">发酵 · 草本 · 功效成分</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number"><span class="counter" data-target="41">0</span><sup>+</sup></div>
+        <div class="stat-label">第三方功效检测</div>
+        <div class="stat-sub">权威机构认证</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number"><span class="counter" data-target="30">0</span><sup>+</sup></div>
+        <div class="stat-label">发明 & 实用新型专利</div>
+        <div class="stat-sub">自主知识产权</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number"><span class="counter" data-target="20">0</span><sup>+</sup></div>
+        <div class="stat-label">年深耕经验</div>
+        <div class="stat-sub">生物活性成分研发</div>
+      </div>
+    </div>
+    <div class="hero-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🧬</div>
+        <div class="pillar-text">
+          <h4>专利菌株发酵技术</h4>
+          <p>多株专利菌种，覆盖大豆、松茸、海葡萄、香菇等基底，发酵工艺受知识产权保护</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📋</div>
+        <div class="pillar-text">
+          <h4>完整功效验证体系</h4>
+          <p>41款原料通过第三方功效检测，保湿、抗皱、舒缓、祛痘全功效覆盖，数据开放查阅</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌿</div>
+        <div class="pillar-text">
+          <h4>东方草本溯源体系</h4>
+          <p>从纳木错高原到中原本草，每款原料均有完整产地溯源与成分转化说明</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-eyebrow">About</span>
+    <h2 class="section-title">关于中耀博研</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p class="about-body">
+        天津中耀博研生物医药有限公司，坐落于天津西青区天祥工业园区，是一家专注于
+        <strong>化妆品生物活性原料研发与供应</strong>的高新技术企业。
+        <br><br>
+        我们深耕东方发酵科技与草本提取领域二十余年，构建了从<strong>菌株培育、发酵转化、提取纯化到功效验证</strong>的全链路自主研发体系。
+        旗下原料已被相宜本草、黛珂、玉容等知名品牌采用。
+        <br><br>
+        我们相信：最好的护肤成分，藏在自然界最极端、最纯净的地方。我们的使命是将它们找到，并用现代科学让它们发挥最大价值。
+      </p>
+      <div class="about-tags">
+        <span class="tag">发酵生物技术</span>
+        <span class="tag">东方草本提取</span>
+        <span class="tag">功效验证</span>
+        <span class="tag">专利保护</span>
+        <span class="tag">B2B原料供应</span>
+        <span class="tag">配方技术支持</span>
+        <span class="tag">安全合规检测</span>
+        <span class="tag">OEM协同开发</span>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-fact">
+        <h4>地址</h4>
+        <p>天津市西青区李七庄街天祥工业区祥宪路7号</p>
+      </div>
+      <div class="about-fact">
+        <h4>核心能力</h4>
+        <p>专利菌株发酵 · 植物超临界提取 · 纳米包裹技术 · 后生元制备 · 功效配方设计</p>
+      </div>
+      <div class="about-fact">
+        <h4>服务模式</h4>
+        <p>标准原料供应 · 定制原料研发 · 参考配方提供 · 功效报告共享 · 样品申请</p>
+      </div>
+      <div class="about-fact">
+        <h4>合作品牌（部分）</h4>
+        <p>相宜本草 · 黛珂 DECORTÉ · 玉容 · 及其他知名化妆品品牌</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section id="ingredients">
+  <div class="section-header">
+    <span class="section-eyebrow">Ingredients</span>
+    <h2 class="section-title">原料中心</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="category-tabs">
+    <button class="tab-btn active" onclick="switchTab('ferment', this)">发酵系列</button>
+    <button class="tab-btn" onclick="switchTab('botanical', this)">草本提取</button>
+    <button class="tab-btn" onclick="switchTab('functional', this)">功效成分</button>
+    <button class="tab-btn" onclick="switchTab('floral', this)">花萃纯露</button>
+    <button class="tab-btn" onclick="switchTab('oil', this)">植物油脂</button>
+  </div>
+
+  <div id="tab-ferment" class="tab-panel active">
+    <div class="ingredients-grid">
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">大豆发酵</div>
+        <div class="ing-name">豆酵源</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">抗氧化</span><span class="effect-tag">零刺激</span>
+        </div>
+        <div class="ing-footer">CGMCC专利菌株 · 614种代谢物</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">松茸发酵</div>
+        <div class="ing-name">松茸精萃</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">抗皱紧致</span>
+        </div>
+        <div class="ing-footer">专利发酵培养基工艺</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">香菇菌丝</div>
+        <div class="ing-name">香菇菌丝发酵因子</div>
+        <div class="ing-effects">
+          <span class="effect-tag">修护屏障</span><span class="effect-tag">舒缓</span>
+        </div>
+        <div class="ing-footer">专利制备方法保护</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">乳酸杆菌</div>
+        <div class="ing-name">乳酸杆菌发酵产物</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span><span class="effect-tag">祛痘</span>
+        </div>
+        <div class="ing-footer">系统安全性全套检测</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">海葡萄发酵</div>
+        <div class="ing-name">海葡萄发酵液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span>
+        </div>
+        <div class="ing-footer">益生菌发酵专利工艺</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">灵芝发酵</div>
+        <div class="ing-name">灵芝发酵液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">抗皱紧致</span>
+        </div>
+        <div class="ing-footer">灵芝孢子油同步供应</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">二裂酵母</div>
+        <div class="ing-name">二裂酵母发酵产物滤液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span>
+        </div>
+        <div class="ing-footer">二甘醇未检出 高纯度</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">四重花萃</div>
+        <div class="ing-name">四重花萃发酵液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span>
+        </div>
+        <div class="ing-footer">复合花卉发酵工艺</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">蜂蜜发酵</div>
+        <div class="ing-name">蜂蜜发酵液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">修护</span>
+        </div>
+        <div class="ing-footer">天然蜂蜜基底</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-botanical" class="tab-panel">
+    <div class="ingredients-grid">
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">人参</div>
+        <div class="ing-name">百草之王·人参提取物</div>
+        <div class="ing-effects">
+          <span class="effect-tag">抗皱紧致</span><span class="effect-tag">保湿</span>
+        </div>
+        <div class="ing-footer">人参皂苷自组装复合液</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">藏红花</div>
+        <div class="ing-name">藏红花精粹液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">抗皱紧致</span>
+        </div>
+        <div class="ing-footer">番红花油同步供应</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">石斛</div>
+        <div class="ing-name">石斛提取物</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span><span class="effect-tag">修护</span>
+        </div>
+        <div class="ing-footer">九大仙草之首</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">肉苁蓉</div>
+        <div class="ing-name">肉苁蓉提取液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">修护</span>
+        </div>
+        <div class="ing-footer">发酵版本同步供应</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">积雪草</div>
+        <div class="ing-name">积雪草自组装复合液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">修护</span><span class="effect-tag">舒缓</span>
+        </div>
+        <div class="ing-footer">纳米自组装技术</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">双黄</div>
+        <div class="ing-name">双黄（黄连·黄檗）提取物</div>
+        <div class="ing-effects">
+          <span class="effect-tag">祛痘</span><span class="effect-tag">控油</span>
+        </div>
+        <div class="ing-footer">中药抗炎经典组合</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">马齿苋</div>
+        <div class="ing-name">马齿苋提取物 / 纯露</div>
+        <div class="ing-effects">
+          <span class="effect-tag">舒缓</span><span class="effect-tag">保湿</span>
+        </div>
+        <div class="ing-footer">提取物与纯露双规格</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">峨参</div>
+        <div class="ing-name">峨参发酵液</div>
+        <div class="ing-effects">
+          <span class="effect-tag">抗蓝光</span><span class="effect-tag">保湿</span>
+        </div>
+        <div class="ing-footer">抗蓝光专利配方</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-functional" class="tab-panel">
+    <div class="ingredients-grid">
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">抗蓝光</div>
+        <div class="ing-name">蓝御因</div>
+        <div class="ing-effects">
+          <span class="effect-tag">抗蓝光</span><span class="effect-tag">修护</span>
+        </div>
+        <div class="ing-footer">峨参提取物专利组合</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">光老化防护</div>
+        <div class="ing-name">光护因</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">防光老化</span>
+        </div>
+        <div class="ing-footer">倒捻子素纳米胶束专利</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">抗氧化</div>
+        <div class="ing-name">白藜芦醇</div>
+        <div class="ing-effects">
+          <span class="effect-tag">抗氧化</span><span class="effect-tag">抗皱</span>
+        </div>
+        <div class="ing-footer">专利稳定性提升技术</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">舒缓放松</div>
+        <div class="ing-name">GABA酵母能量精粹</div>
+        <div class="ing-effects">
+          <span class="effect-tag">舒缓</span><span class="effect-tag">抗压护肤</span>
+        </div>
+        <div class="ing-footer">新兴抗压护肤成分</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">控油祛痘</div>
+        <div class="ing-name">苦参碱</div>
+        <div class="ing-effects">
+          <span class="effect-tag">舒缓</span><span class="effect-tag">控油</span>
+        </div>
+        <div class="ing-footer">中药控痘经典成分</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">多肽</div>
+        <div class="ing-name">脱羧肌肽</div>
+        <div class="ing-effects">
+          <span class="effect-tag">保湿</span><span class="effect-tag">抗皱紧致</span>
+        </div>
+        <div class="ing-footer">新型抗糖化多肽</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-floral" class="tab-panel">
+    <div class="ingredients-grid">
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">玫瑰纯露</div>
+        <div class="ing-name">玫瑰纯露</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span></div>
+        <div class="ing-footer">浓度：90%</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">桃花纯露</div>
+        <div class="ing-name">桃花纯露</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">提亮</span></div>
+        <div class="ing-footer">浓度：90%</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">蓝莲花纯露</div>
+        <div class="ing-name">蓝莲花纯露</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span></div>
+        <div class="ing-footer">浓度：90%</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">薰衣草纯露</div>
+        <div class="ing-name">薰衣草纯露</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">舒缓</span></div>
+        <div class="ing-footer">浓度：90%</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">白茶</div>
+        <div class="ing-name">白茶露</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">抗氧化</span></div>
+        <div class="ing-footer">轻盈清透</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">薄荷纯露</div>
+        <div class="ing-name">田野薄荷纯露</div>
+        <div class="ing-effects"><span class="effect-tag">清洁</span><span class="effect-tag">清爽</span></div>
+        <div class="ing-footer">天然清香</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-oil" class="tab-panel">
+    <div class="ingredients-grid">
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-badge">专利</div>
+        <div class="ing-category">山茶籽油</div>
+        <div class="ing-name">植酶山茶籽油</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">修护</span></div>
+        <div class="ing-footer">透皮促渗专利技术</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">牡丹籽油</div>
+        <div class="ing-name">酶制牡丹籽油</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">修护</span></div>
+        <div class="ing-footer">酶法冷榨 活性更高</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">白池花籽油</div>
+        <div class="ing-name">酶制白池花籽油</div>
+        <div class="ing-effects"><span class="effect-tag">保湿</span><span class="effect-tag">轻盈</span></div>
+        <div class="ing-footer">干性肤感基础油</div>
+      </div>
+      <div class="ingredient-card" onclick="openModal()">
+        <div class="ing-category">灵芝孢子油</div>
+        <div class="ing-name">灵芝孢子油</div>
+        <div class="ing-effects"><span class="effect-tag">修护</span><span class="effect-tag">抗皱紧致</span><span class="effect-tag">舒缓</span></div>
+        <div class="ing-footer">高纯度破壁提取</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:48px;">
+    <a href="#contact" class="btn-primary">获取完整产品目录</a>
+  </div>
+</section>
+
+<!-- PATENTS -->
+<section id="patents">
+  <div class="section-header">
+    <span class="section-eyebrow">Patents</span>
+    <h2 class="section-title">专利体系</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="patents-layout">
+    <div class="patents-intro fade-up">
+      <h3>知识产权是<br>我们最深的护城河</h3>
+      <p>中耀博研构建了从原料制备工艺、功效配方应用到生产装备的完整专利保护体系。每一项专利，都源自我们对一个配方难题的深入研究与突破。</p>
+      <div class="patent-stat">
+        <div class="patent-stat-item">
+          <div class="patent-stat-n"><span class="counter" data-target="15">0</span><span>+</span></div>
+          <div class="patent-stat-l">发明专利</div>
+        </div>
+        <div class="patent-stat-item">
+          <div class="patent-stat-n"><span class="counter" data-target="20">0</span><span>+</span></div>
+          <div class="patent-stat-l">实用新型专利</div>
+        </div>
+      </div>
+    </div>
+    <div class="patent-list fade-up">
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">一种化妆品用乳酸杆菌发酵产物的制备方法</span>
+        <span class="patent-tag">原料制备</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">一种松口蘑、松茸菌丝体发酵培养基及其发酵液的制备方法</span>
+        <span class="patent-tag">原料制备</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">具有修复皮肤屏障的香菇菌丝体发酵液的制备方法</span>
+        <span class="patent-tag">功效配方</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">用益生菌发酵制备海葡萄多糖的方法</span>
+        <span class="patent-tag">原料制备</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">山茶花籽油发酵物在透皮促渗剂中的应用</span>
+        <span class="patent-tag">应用专利</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">一种提高白藜芦醇稳定性和活性的复合物及其制备与应用</span>
+        <span class="patent-tag">功效配方</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">一种包含峨参提取物的抗蓝光皮肤护理组合物及其应用</span>
+        <span class="patent-tag">功效配方</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">一种改变皮肤微生态的后生元面膜及其制备方法</span>
+        <span class="patent-tag">应用专利</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type">发明</span>
+        <span class="patent-name">一种用于皮肤化妆的倒捻子素复合纳米胶束及其制剂和应用</span>
+        <span class="patent-tag">功效配方</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type utility">实用新型</span>
+        <span class="patent-name">一种高效发酵装置</span>
+        <span class="patent-tag">生产装备</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type utility">实用新型</span>
+        <span class="patent-name">一种用于高浓度中草药植物发酵的发酵装置</span>
+        <span class="patent-tag">生产装备</span>
+      </div>
+      <div class="patent-item">
+        <span class="patent-type utility">实用新型</span>
+        <span class="patent-name">一种乳酸菌厌氧发酵海葡萄的装置</span>
+        <span class="patent-tag">生产装备</span>
+      </div>
+      <p style="font-size:12px;color:var(--ink-mute);padding-top:16px;letter-spacing:0.06em;">* 以上为部分核心专利展示，完整专利清单请联系我们索取</p>
+    </div>
+  </div>
+</section>
+
+<!-- EFFICACY -->
+<section id="efficacy">
+  <div class="section-header">
+    <span class="section-eyebrow">Efficacy Data</span>
+    <h2 class="section-title">功效验证</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="efficacy-intro fade-up">
+    <p>我们坚信：每一款原料的功效声称，都应有第三方数据支撑。中耀博研已完成41款原料的权威机构功效检测，覆盖保湿、抗皱紧致、舒缓、祛痘、修护等全功效维度，报告开放品牌方查阅。</p>
+  </div>
+  <div class="efficacy-categories fade-up">
+    <div class="efficacy-cat">
+      <div class="efficacy-cat-icon">💧</div>
+      <div class="efficacy-cat-name">保湿锁水</div>
+      <div class="efficacy-cat-count">30+</div>
+      <div class="efficacy-cat-label">款原料已验证</div>
+    </div>
+    <div class="efficacy-cat">
+      <div class="efficacy-cat-icon">✨</div>
+      <div class="efficacy-cat-name">抗皱紧致</div>
+      <div class="efficacy-cat-count">15+</div>
+      <div class="efficacy-cat-label">款原料已验证</div>
+    </div>
+    <div class="efficacy-cat">
+      <div class="efficacy-cat-icon">🌿</div>
+      <div class="efficacy-cat-name">舒缓修护</div>
+      <div class="efficacy-cat-count">12+</div>
+      <div class="efficacy-cat-label">款原料已验证</div>
+    </div>
+    <div class="efficacy-cat">
+      <div class="efficacy-cat-icon">🎯</div>
+      <div class="efficacy-cat-name">祛痘控油</div>
+      <div class="efficacy-cat-count">8+</div>
+      <div class="efficacy-cat-label">款原料已验证</div>
+    </div>
+    <div class="efficacy-cat">
+      <div class="efficacy-cat-icon">🛡️</div>
+      <div class="efficacy-cat-name">安全毒理</div>
+      <div class="efficacy-cat-count">10+</div>
+      <div class="efficacy-cat-label">款原料完整检测</div>
+    </div>
+  </div>
+  <div class="efficacy-highlight fade-up">
+    <div class="efficacy-card">
+      <h4>豆酵源 · 双重保湿</h4>
+      <div class="data-point">↑61.2%</div>
+      <p>8小时皮肤含水量提升率，小分子多糖形成透气保湿膜，天然氨基酸群激活水通道蛋白</p>
+      <p class="source">第三方检验报告 No.HQ2412893</p>
+    </div>
+    <div class="efficacy-card">
+      <h4>乳酸杆菌发酵产物 · 安全性</h4>
+      <div class="data-point">0刺激</div>
+      <p>急性皮肤刺激、多次皮肤刺激、急性眼刺激全项通过，系统毒理完整检测，合规无忧</p>
+      <p class="source">中检科（北京）测试技术有限公司</p>
+    </div>
+    <div class="efficacy-card">
+      <h4>半乳糖酵母样菌发酵产物 · 多维功效</h4>
+      <div class="data-point">50%</div>
+      <p>高浓度应用验证，紧致、抗皱、舒缓、祛痘功效同步检测，广东惠晨与欣研双机构认证</p>
+      <p class="source">双机构交叉验证</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header">
+    <span class="section-eyebrow">Insights</span>
+    <h2 class="section-title">研究洞察</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="blog-grid">
+    <a href="#" class="blog-card fade-up">
+      <div class="blog-meta">
+        <span class="blog-tag">发酵科技</span>
+        <span class="blog-date">2026.03</span>
+      </div>
+      <h3 class="blog-title">海拔4718米的纳木错，藏着一株改变护肤的菌</h3>
+      <p class="blog-excerpt">专利菌株CGMCC No.26537的发现始于一次高原科考。极端环境赋予了它独特的"极端环境修护基因"，让大豆在72小时发酵中释放出614种活性代谢物……</p>
+      <span class="blog-arrow">阅读全文 →</span>
+    </a>
+    <a href="#" class="blog-card fade-up">
+      <div class="blog-meta">
+        <span class="blog-tag">成分解析</span>
+        <span class="blog-date">2026.02</span>
+      </div>
+      <h3 class="blog-title">为什么发酵大豆比普通大豆提取物贵10倍？</h3>
+      <p class="blog-excerpt">同样是大豆，普通溶剂提取得到的是寥寥数种活性物；专利菌株发酵转化后，代谢组学分析鉴定出614种代谢物。这背后是工艺的差距，更是功效的差距……</p>
+      <span class="blog-arrow">阅读全文 →</span>
+    </a>
+    <a href="#" class="blog-card fade-up">
+      <div class="blog-meta">
+        <span class="blog-tag">行业洞察</span>
+        <span class="blog-date">2026.01</span>
+      </div>
+      <h3 class="blog-title">配方师选原料时，最看重的3个维度</h3>
+      <p class="blog-excerpt">功效、安全、故事——这是我们与数十位品牌配方师深度沟通后总结的原料选型三要素。原料不只是配方里的一行INCI名称，它是品牌向消费者讲述的故事……</p>
+      <span class="blog-arrow">阅读全文 →</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-eyebrow">Contact</span>
+    <h2 class="section-title">联系我们</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-left">
+      <h3>与我们开始一次<br>原料合作对话</h3>
+      <div class="contact-info">
+        <div class="contact-row">
+          <span class="contact-row-label">电话</span>
+          <span class="contact-row-value">155 1092 5755</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">邮件</span>
+          <span class="contact-row-value">tjsmhr@sciemetics.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">地址</span>
+          <span class="contact-row-value">天津市西青区李七庄街<br>天祥工业区祥宪路7号</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">服务</span>
+          <span class="contact-row-value">样品申请 · 功效报告查询<br>定制研发咨询 · 配方技术支持</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>姓名 *</label>
+          <input type="text" placeholder="您的姓名">
+        </div>
+        <div class="form-group">
+          <label>公司名称 *</label>
+          <input type="text" placeholder="品牌方 / 工厂 / 机构">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>联系方式 *</label>
+          <input type="text" placeholder="手机或微信">
+        </div>
+        <div class="form-group">
+          <label>合作类型</label>
+          <select>
+            <option value="">请选择</option>
+            <option>原料样品申请</option>
+            <option>功效报告查询</option>
+            <option>定制研发咨询</option>
+            <option>配方技术支持</option>
+            <option>其他</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>感兴趣的原料或需求说明</label>
+        <textarea rows="4" placeholder="请描述您的需求，例如：希望了解豆酵源的功效数据及添加量建议..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleContactSubmit()">提交询样申请</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 天津中耀博研生物医药有限公司 · 与高品质同行</span>
+  <span>
+    <a href="mailto:tjsmhr@sciemetics.com">tjsmhr@sciemetics.com</a>
+    &nbsp;·&nbsp;
+    <a href="tel:15510925755">155-1092-5755</a>
+  </span>
+</footer>
+
+<!-- SAMPLE MODAL -->
+<div class="modal-overlay" id="sampleModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalFormContent">
+      <h2 class="modal-title">申请原料样品</h2>
+      <p class="modal-sub">填写以下信息，我们将在1个工作日内与您联系</p>
+      <div class="modal-form">
+        <input type="text" placeholder="您的姓名 *">
+        <input type="text" placeholder="公司名称 *">
+        <input type="text" placeholder="联系电话 / 微信 *">
+        <select>
+          <option value="">感兴趣的原料类别</option>
+          <option>发酵系列</option>
+          <option>草本提取</option>
+          <option>功效成分</option>
+          <option>花萃纯露</option>
+          <option>植物油脂</option>
+          <option>其他 / 多款</option>
+        </select>
+        <textarea rows="3" placeholder="具体原料名称或需求说明（选填）"></textarea>
+        <button class="modal-submit" onclick="handleModalSubmit()">提交申请</button>
+      </div>
+    </div>
+    <div class="success-msg" id="successMsg">
+      <div class="check">✓</div>
+      <h3>申请已收到</h3>
+      <p>我们将在1个工作日内通过您填写的联系方式与您联系，感谢您对中耀博研的关注。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Tab switching
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 1200;
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(update);
+}
+
+// Intersection observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      entry.target.querySelectorAll('.counter').forEach(c => animateCounter(c));
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up, .stats-grid, .patents-layout').forEach(el => observer.observe(el));
+
+// Also trigger counters in hero on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.stats-grid .counter').forEach(c => animateCounter(c));
+  }, 400);
+});
+
+// Modal
+function openModal() {
+  document.getElementById('sampleModal').classList.add('open');
+  document.getElementById('modalFormContent').style.display = 'block';
+  document.getElementById('successMsg').style.display = 'none';
+}
+function closeModal() {
+  document.getElementById('sampleModal').classList.remove('open');
+}
+function handleModalSubmit() {
+  document.getElementById('modalFormContent').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+function handleContactSubmit() {
+  alert('感谢您的询样申请！我们将在1个工作日内与您联系。');
+}
+document.getElementById('sampleModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>
